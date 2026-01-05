@@ -51,3 +51,21 @@ python3 -m venv venv
 source venv/bin/activate
 pip install torch torchvision
 ```
+
+### 3. Ejecutar Benchmark
+Este script detectará automáticamente si tienes CUDA o MPS:
+```bash
+python run_benchmark.py
+```
+
+---
+
+## 📂 Estructura del Proyecto
+- `data_utils.py`: Generador de dataset sintético de alta carga.
+- `run_benchmark.py`: Script unificado de pruebas con protección de entrada para multiprocessing.
+- `03_cuda_streams.py`: Script avanzado para arquitecturas NVIDIA (Pipelining de memoria).
+
+---
+
+## 🎓 Conclusiones de la Tesis
+Este laboratorio valida que las "mejores prácticas" industriales (como el uso masivo de workers en DataLoaders) deben ser siempre validadas mediante benchmarking local. Mientras que en servidores de alta gama con NVIDIA el beneficio es masivo, en la nueva era de la Memoria Unificada de Apple, la simplicidad suele ganar.
